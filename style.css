@@ -31,13 +31,30 @@
 
 /*UTILITY CLASSES*/
 
-  .btn {
+.red-text {
+  color: red;
+}
+
+.red-background {
+
+  background-color: red;
+}
+
+.green-text {
+  color: #009a22;
+}
+
+.green-background {
+
+  background-color: #009a22;
+}
+
+.btn {
 
   display: block;
   font-family: inherit;
   font-size: 1.2rem;
   padding: 1rem 1.2rem;
-  color: #009a22;
   border: 1px solid #fff;
   }
 
@@ -69,7 +86,6 @@
 
     font-size: 3rem;
     padding: 2rem 3rem;
-    color: #009a22;
     background-color: #fff;
   }
 
@@ -94,7 +110,6 @@
     text-align: center;
     border: 3px solid #fff;
     font-family: 'Press Start 2P';
-    background-color: #009a22;
     color: #fff;
   }
 
@@ -214,6 +229,8 @@
     font-size: 1.2rem;
     padding: 1.3rem 1.5rem;
   }
+
+  
 
     /*HEADER STYLING*/
 

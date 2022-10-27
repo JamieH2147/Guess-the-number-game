@@ -7,6 +7,7 @@ const highScoreOutput = document.querySelector('#highscore-output');
 const gameReset = document.querySelector('#game-reset');
 const background = document.querySelector('body');
 
+const dynamicText = document.querySelectorAll('.green-text');
 
 let secretNumber = Math.trunc((Math.random() * 20) + 1);
 let score = 20;
@@ -23,7 +24,7 @@ guessSubmit.addEventListener('click', function() {
     guessInput.focus();
 
   } else if(guess === secretNumber) {
-    message.textContent = 'You Win!';
+    message.textContent = '🥳 You Win!';
     numberContainer.textContent = secretNumber;
 
       if(score > highScore) {
@@ -34,28 +35,37 @@ guessSubmit.addEventListener('click', function() {
     
     score--;
     scoreOutput.textContent = score;
-    message.textContent = (guess > secretNumber ? 'Guess too high!' : 'Guess too low!');
+    message.textContent = (guess > secretNumber ? '🤔 Guess too high!' : '🤔 Guess too low!');
     guessInput.focus();
 
     if(score < 1) {
 
-      message.textContent = 'You lose!';
+      message.textContent = '😿 You lose!';
       scoreOutput.textContent = '0';
       score = 0;
       background.style.backgroundColor = 'red';
-      guessInput.backgroundColor = 'red';
+      dynamicText.forEach(element => {
+        element.classList.remove('green-text');
+
+      })
+    
+      guessInput.classList.remove('green-background');
      }
     }
   })
 
 gameReset.addEventListener('click', function () {
 
-score = 20;
-scoreOutput.textContent = score;
-secretNumber = Math.trunc((Math.random() * 20) + 1);
-numberContainer.textContent = '?';
-message.textContent = 'Start guessing...';
-guessInput.value = '';
-guessInput.focus();
-
+      score = 20;
+      scoreOutput.textContent = score;
+      secretNumber = Math.trunc((Math.random() * 20) + 1);
+      numberContainer.textContent = '?';
+      message.textContent = 'Start guessing...';
+      guessInput.value = '';
+      guessInput.focus();
+      background.style.backgroundColor = '#009a22';
+      dynamicText.forEach(element => {
+        element.classList.add('green-text');
+      })
+      guessInput.classList.add('green-background');
 })
